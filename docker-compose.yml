@@ -1,3 +1,6 @@
+# 開発: docker compose up
+# 本番ビルド: docker build -t app .
+
 services:
   web:
     build: .

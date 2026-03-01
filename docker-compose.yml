@@ -1,5 +1,4 @@
 # 開発: docker compose up
-# 本番ビルド: docker build -t app .
 
 services:
   web:
@@ -8,6 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/rails
+      - ~/.aws:/root/.aws:ro # AWS CLIの設定ファイルをマウント
     environment:
       - RAILS_ENV=development
     command: ["./bin/rails", "server", "-b", "0.0.0.0"]

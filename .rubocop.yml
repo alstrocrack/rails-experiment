@@ -10,5 +10,17 @@ inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 Layout:
   Enabled: true
 
+Layout/IndentationWidth:
+  Width: 2
+
+Layout/BlockAlignment:
+  Enabled: true
+
+Layout/EndAlignment:
+  Enabled: true
+
 Style:
   Enabled: true
+
+Style/Documentation:
+  Enabled: false

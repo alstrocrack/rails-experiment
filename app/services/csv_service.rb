@@ -10,24 +10,23 @@ class CsvService
 
       case mode
       when :foreach
-          x.report("CSV.foreach") do
-        CSV.foreach(s3_object, headers: true) do |row|
-          puts row
-        end
+        x.report("CSV.foreach") do
+          CSV.foreach(s3_object, headers: true) do |row|
+            puts row
           end
+        end
       when :parse
-            x.report("CSV.parse") do
-        CSV.parse(s3_object, headers: true).each do |row|
-          puts row
+        x.report("CSV.parse") do
+          CSV.parse(s3_object, headers: true).each do |row|
+            puts row
+          end
         end
-            end
       when :read
-            x.report("CSV.read") do
-        CSV.read(s3_object, headers: true).each do |row|
-          debugger
-          puts row
+        x.report("CSV.read") do
+          CSV.read(s3_object, headers: true).each do |row|
+            puts row
+          end
         end
-            end
       else
         raise ArgumentError, "Invalid mode: #{mode}"
       end

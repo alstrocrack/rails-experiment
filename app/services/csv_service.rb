@@ -7,8 +7,8 @@ class CsvService
 
     case mode
     when :foreach
-      CSV.foreach(StringIO.new(s3_object)) do |row|
-        p row
+      CSV.foreach(s3_object, headers: true) do |row|
+        puts row
       end
     else
       raise ArgumentError, "Invalid mode: #{mode}"

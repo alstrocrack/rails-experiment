@@ -4,10 +4,10 @@ require "benchmark"
 
 class CsvService
   def call(s3_object_key:, mode: :foreach)
-    Benchmark.bm do |x|
-      s3_client = S3Client.new
-      s3_object = s3_client.get_object(s3_object_key).body
+    s3_client = S3Client.new
+    s3_object = s3_client.get_object(s3_object_key).body
 
+    Benchmark.bm do |x|
       case mode
       when :foreach
         x.report("CSV.foreach") do
@@ -31,5 +31,7 @@ class CsvService
         raise ArgumentError, "Invalid mode: #{mode}"
       end
     end
+
+    nil
   end
 end

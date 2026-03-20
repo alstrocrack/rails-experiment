@@ -3,7 +3,7 @@
 require "benchmark"
 
 class CsvService
-  def call(s3_object_key:, mode: :foreach)
+  def call(s3_object_key, mode: :foreach)
     s3_client = S3Client.new
     s3_object = s3_client.get_object(s3_object_key).body
 

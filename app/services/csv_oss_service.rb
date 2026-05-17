@@ -6,7 +6,7 @@ require "csv"
 class CsvOssService
   def call(key:)
     s3_client = Aws::S3::Client.new(region: "ap-northeast-1")
-    object = s3_client.get_object(key: key, bucket: "rails-experiment")
+    object = s3_client.get_object(key: key)
 
     file_path = Rails.root.join("tmp", "downloaded.csv").to_s
 
